@@ -17,6 +17,15 @@ ______ _                               _   _           ______
     println!("{}", game_title);
     println!("Please select one of this options");
 
+    
+    
+    let mut character = Character { 
+        name : String::new(),
+        health : 0,
+        attack_power : 0,
+        agiliti : 0
+
+    };
 
     loop {  
 
@@ -36,7 +45,7 @@ ______ _                               _   _           ______
         };
 
         match option { 
-            1 => set_your_character(),
+            1 => {  character = set_your_character()},
             2 => println!("Todo"),
             9 => { 
                 println!("Quiting ...");
@@ -63,7 +72,7 @@ ______ _                               _   _           ______
     }
 
 
-    fn set_your_character () -> () { 
+    fn set_your_character () -> Character { 
         let set_your_character_title = format!(r#" 
 
   ___      _                          ___ _                     _           
@@ -92,7 +101,12 @@ ______ _                               _   _           ______
         println!("Hello {}", &character.name);
         println!("Your health is {} points", {character.health});
         println!("Your attack power is {} points", {character.attack_power});
+        println!("Your agility is {} points", {character.agiliti});
 
-        
+        println!("Press any key to continue");
+        let mut input = String::new();
+        io::stdin().read_line(&mut input).expect("Error reading line!");
+
+        return character;
     }
 }
