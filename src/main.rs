@@ -71,6 +71,19 @@ ______ _                               _   _           ______
         agiliti:u8
     }
 
+    impl Character { 
+        fn recieve_damage(&mut self, damage:u8) { 
+            let remaining_health = self.health - damage;
+            if remaining_health <= 0 { println!("Critic attack, you are KO")}
+            else { 
+                self.health = remaining_health;
+                println!("Health: {}", self.health);
+            }
+        }
+
+    }
+
+
 
     fn set_your_character () -> Character { 
         let set_your_character_title = format!(r#" 
@@ -97,6 +110,7 @@ ______ _                               _   _           ______
             agiliti : rand::thread_rng().gen_range(1..10),
             
         };
+
 
         println!("Hello {}", &character.name);
         println!("Your health is {} points", {character.health});
