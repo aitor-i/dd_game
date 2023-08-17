@@ -81,6 +81,9 @@ ______ _                               _   _           ______
             }
         }
 
+        fn attack(&mut self) -> u8 { 
+            return self.attack_power;
+        }
     }
 
 
