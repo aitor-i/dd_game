@@ -1,29 +1,19 @@
 use std::io;
 use rand::Rng;
 
+mod domain;
+use crate::domain::goblin::Goblin;
 use crate::domain::characters::Character;
 
-mod domain { 
-    pub mod characters;
+mod service { 
+    mod messages;
+
+    pub use crate::service::messages::print_title;
 }
 
 fn main() {
-    let game_title = format!(r#" 
-
-______ _                               _   _           ______                                    
-|  _  (_)                             | | | |          |  _  \                                   
-| | | |_ ___  ___ _____   _____ _ __  | |_| |__   ___  | | | |_   _ _ __   __ _  ___  ___  _ __  
-| | | | / __|/ __/ _ \ \ / / _ \ '__| | __| '_ \ / _ \ | | | | | | | '_ \ / _` |/ _ \/ _ \| '_ \ 
-| |/ /| \__ \ (_| (_) \ V /  __/ |    | |_| | | |  __/ | |/ /| |_| | | | | (_| |  __/ (_) | | | |
-|___/ |_|___/\___\___/ \_/ \___|_|     \__|_| |_|\___| |___/  \__,_|_| |_|\__, |\___|\___/|_| |_|
-                                                                           __/ |                 
-                                                                          |___/                  
-
-"#);
-    println!("{}", game_title);
+    service::print_title();
     println!("Please select one of this options");
-
-    
     
     let mut character = Character { 
         name : String::new(),
@@ -69,11 +59,6 @@ ______ _                               _   _           ______
     println!("3 - ");
     println!("9 - Exit  ");
     }
-
-
-        
-
-
 
     fn set_your_character () -> Character { 
         let set_your_character_title = format!(r#" 
