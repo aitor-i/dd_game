@@ -1,6 +1,12 @@
 use std::io;
 use rand::Rng;
 
+use crate::domain::characters::Character;
+
+mod domain { 
+    pub mod characters;
+}
+
 fn main() {
     let game_title = format!(r#" 
 
@@ -64,60 +70,8 @@ ______ _                               _   _           ______
     println!("9 - Exit  ");
     }
 
-    struct Character { 
-        name: String,
-        health: u8,
-        attack_power:u8,
-        agiliti:u8
-    }
 
-    impl Character { 
-        fn recieve_damage(&mut self, damage:u8) { 
-            let remaining_health = self.health - damage;
-            if remaining_health <= 0 { println!("Critic attack, you are KO")}
-            else { 
-                self.health = remaining_health;
-                println!("Health: {}", self.health);
-            }
-        }
-
-        fn attack(&mut self) -> u8 { 
-            return self.attack_power;
-        }
-    }
-
-    struct Goblin { 
-        level:u8,
-        health: u8,
-        attack_power:u8,
-        agility:u8
-    }
-
-    impl Goblin { 
-        fn new(level:u8) -> Goblin { 
-            let mut newGoblin  = Goblin { 
-                level,
-                health : 25 ,
-                attack_power: 1, 
-                agility :4,
-            };
-
-            return newGoblin;
-        }
-        fn recieve_damage(&mut self, damage:u8) { 
-            let remaining_health = self.health - damage;
-            if remaining_health <= 0 { println!("Critic attack, you are KO")}
-            else { 
-                self.health = remaining_health;
-                println!("Health: {}", self.health);
-            }
-        }
-
-        fn attack(&mut self) -> u8 { 
-            return self.attack_power;
-        }
         
-    }
 
 
 
