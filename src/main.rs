@@ -4,15 +4,11 @@ use rand::Rng;
 mod domain;
 use crate::domain::goblin::Goblin;
 use crate::domain::characters::Character;
-
-mod service { 
-    mod messages;
-
-    pub use crate::service::messages::print_title;
-}
+mod service;
+use crate::service::messages::print_title;
 
 fn main() {
-    service::print_title();
+    print_title();
     println!("Please select one of this options");
     
     let mut character = Character { 
