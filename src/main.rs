@@ -1,8 +1,6 @@
 use std::io;
-use rand::Rng;
-
 mod domain;
-use crate::domain::goblin::Goblin;
+
 use crate::domain::characters::Character;
 mod service;
 use crate::service::messages::print_title;

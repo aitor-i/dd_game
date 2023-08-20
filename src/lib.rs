@@ -1,4 +1,3 @@
-mod characters { 
-    
+//pub mod domain;
+//pub mod service;
 
-}
