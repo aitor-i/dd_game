@@ -1,9 +1,10 @@
 use std::io;
 mod domain;
+mod service;
 
 use crate::domain::characters::Character;
-mod service;
 use crate::service::messages::print_title;
+use crate::service::messages::print_options;
 use crate::service::set_your_character::set_your_character;
 
 fn main() {
@@ -48,11 +49,5 @@ fn main() {
         println!();
     };
 
-    fn print_options() -> () { 
-    println!("1 - Set your character");
-    println!("2 - ");
-    println!("3 - ");
-    println!("9 - Exit  ");
-    }
 
 }

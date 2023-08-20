@@ -14,3 +14,10 @@ ______ _                               _   _           ______
 "#);
     println!("{}", game_title);
 }
+
+pub fn print_options() -> () { 
+    println!("1 - Set your character");
+    println!("2 - ");
+    println!("3 - ");
+    println!("9 - Exit  ");
+}
