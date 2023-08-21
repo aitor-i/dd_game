@@ -23,5 +23,12 @@ impl CharacterActions for Character {
     fn get_health(&mut self)-> u8 {
         return self.health;
     }
+    fn get_name(&mut self) -> &str { 
+        return &self.name;
+    }
+
+    fn get_level(&mut self) -> u8 {
+        return self.attack_power;
+    }
 }
 

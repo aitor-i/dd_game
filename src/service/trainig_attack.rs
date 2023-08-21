@@ -6,8 +6,8 @@ pub fn training_fight() -> () {
     println!("A goblin apear on yor way, it seems to be dangerous");
     println!("What dou you wanna do?");
 
-    let mut goblin = Goblin::new(1);
-    let mut goblin2 = Goblin::new(1);
+    let mut goblin = Goblin::new(1, "Small goblin");
+    let mut goblin2 = Goblin::new(1, "Medium Goblin");
 
 
     loop { 

@@ -1,7 +1,7 @@
 use crate::domain::goblin::Goblin; 
 use crate::domain::characters::Character;
 
-pub enum CharEnum { 
-    Goblin(Goblin),
+pub enum CharEnum <'lifetime>{ 
+    Goblin(Goblin <'lifetime>),
     Character(Character)
 }
