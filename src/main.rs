@@ -9,6 +9,7 @@ use crate::service::messages::print_title;
 use crate::service::messages::print_options;
 use crate::service::set_your_character::set_your_character;
 use crate::domain::base_character::CharacterActions;
+use crate::service::trainig_attack::training_fight;
 
 fn main() {
     print_title();
@@ -51,50 +52,5 @@ fn main() {
         println!();
         println!();
     };
-
-    fn training_fight() -> () { 
-        println!("A goblin apear on yor way, it seems to be dangerous");
-        println!("What dou you wanna do?");
-        
-        let mut goblin = Goblin::new(1);
-        let mut goblin2 = Goblin::new(1);
-
-
-        loop { 
-            fight_option();
-
-            let mut option = String::new();
-
-            io::stdin()
-                .read_line(&mut option)
-                .expect("Failed to read option!");
-
-            let option: u8 = match option.trim().parse() { 
-                Ok(num)=> num,
-                Err(_) => { 
-                    println!("{} is not a valid option", option);
-                    continue;
-                }
-            };
-
-            match option { 
-                1 => {calculate_attack(& mut goblin2, &  mut goblin);}
-                2 => println!("Todo"),
-                _ => println!("{} is not a valid option", {option})
-            }
-        }   
-    }
-
-    fn calculate_attack(attacker: &mut dyn CharacterActions , defender: &mut dyn CharacterActions) -> () { 
-        println!("Attacking...");
-        println!("Initial heath: {}", defender.get_health());
-        defender.recieve_damage( attacker.attack() );
-        
-    }
-
-    fn fight_option() -> () { 
-        println!("1 - Attack");
-        println!("2 - Defend");
-    }
-
 }
+
