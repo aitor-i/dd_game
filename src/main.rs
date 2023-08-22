@@ -2,13 +2,10 @@ use std::io;
 mod domain;
 mod service;
 
-use crate::domain::char_enum;
 use crate::domain::characters::Character;
-use crate::domain::goblin::Goblin;
 use crate::service::messages::print_title;
 use crate::service::messages::print_options;
 use crate::service::set_your_character::set_your_character;
-use crate::domain::base_character::CharacterActions;
 use crate::service::trainig_attack::training_fight;
 
 fn main() {
