@@ -29,7 +29,7 @@ pub fn training_fight() -> () {
 
         match option { 
             1 => {calculate_attack(& mut goblin2, &  mut goblin);}
-            2 => println!("Todo"),
+            2 => {check_opponent(&mut goblin)},
             _ => println!("{} is not a valid option", {option})
         }
     }   
@@ -42,8 +42,18 @@ pub    fn calculate_attack(attacker: &mut dyn CharacterActions , defender: &mut 
 
 }
 
+pub fn check_opponent(opponent: &mut dyn CharacterActions)-> () { 
+    println!("Checking {}", opponent.get_name());
+    println!("###############################");
+    println!();
+    opponent.print_stats();
+
+}
+
 pub  fn fight_option() -> () { 
     println!("1 - Attack");
-    println!("2 - Defend");
+    println!("2 - Check opponent");
+    println!();
+    println!();
 }
 

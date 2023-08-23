@@ -47,4 +47,11 @@ impl CharacterActions for Goblin <'_> {
         return self.name;
     }
 
+    fn print_stats(&mut self) -> () {
+        println!("Name: {}", self.name);
+        println!("Health: {}", self.health);
+        println!("Attack power: {}", self.attack_power);
+        println!("Agility: {}", self.agility);
+    }
+
 }
