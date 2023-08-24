@@ -9,17 +9,23 @@ pub  struct Npc<'lifetime> {
 }
 
 impl <'lifetime> Npc <'_>{ 
-    pub  fn new(level:u8, name: &'lifetime str) -> Npc { 
+    pub  fn new(level:u8, name: &'lifetime str) -> Npc {
         let mut new_goblin  = Npc { 
             level,
-            health : 25 ,
-            attack_power: 1, 
-            agility :4,
+            health : calculate_stats(10, level, 100) ,
+            attack_power: calculate_stats(1, level, 10 ), 
+            agility :calculate_stats(1, level, 10),
             name
         };
 
         return new_goblin;
     }
+}
+
+fn calculate_stats(base:u8, level:u8, max:u8) -> u8 { 
+    let stat = base * level;
+    if stat > max { return max}
+    return stat
 }
 
 impl CharacterActions for Npc <'_> { 
