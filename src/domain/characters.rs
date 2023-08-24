@@ -10,7 +10,7 @@ pub struct Character {
 pub enum CharacterBuild {Paladin, Knight, Vandit }
 
 impl Character { 
-    fn new(character_type: CharacterBuild, name:String) -> Character { 
+   pub fn new(character_type: CharacterBuild, name:String) -> Character { 
         return match character_type { 
             CharacterBuild::Paladin => { Character {
                 name : String::from(name),

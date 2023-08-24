@@ -13,19 +13,11 @@ fn main() {
     print_title();
     println!("Please select one of this options");
     
-    let mut character = Character { 
-        name : String::new(),
-        health : 0,
-        attack_power : 0,
-        agiliti : 0
-
-    };
-
     loop {  
 
+        let mut character = set_your_character();
         print_options();
         let mut option = String::new();
-
         io::stdin()
             .read_line(&mut option)
             .expect("Failed to read option!");
@@ -39,7 +31,7 @@ fn main() {
         };
 
         match option { 
-            1 => {  character = set_your_character()},
+            1 => {  },
             2 => { training_fight(&mut character) },
             9 => { 
                 println!("Quiting ...");
