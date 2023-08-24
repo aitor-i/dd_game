@@ -1,6 +1,7 @@
 use std::io;
 mod domain;
 mod service;
+mod application;
 
 use crate::domain::characters::Character;
 use crate::service::messages::print_title;
