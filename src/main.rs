@@ -11,11 +11,11 @@ use crate::service::trainig_attack::training_fight;
 
 fn main() {
     print_title();
+    let mut character = set_your_character();
     println!("Please select one of this options");
     
     loop {  
 
-        let mut character = set_your_character();
         print_options();
         let mut option = String::new();
         io::stdin()
