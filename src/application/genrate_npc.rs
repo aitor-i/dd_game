@@ -1,13 +1,12 @@
 use crate::domain::npc::Npc;
 
-pub fn generate_npc(npc_type: u8) -> ()  { 
+pub enum NpcType {Goblin, Troll}
 
-/*
- *    let mut goblin = Npc::new();
- *
- *    match type { 
- *        1 => {},
- *        - => { }
- *    }
- */
+
+pub fn generate_npc(npc_type:NpcType) -> Npc<'static>  { 
+
+    let mut npc: Npc = match npc_type { 
+        NpcType::Goblin => {return Npc::new(1, "Small Goblin"); },
+        NpcType::Troll => { return Npc::new(4, "Troll"); }
+    };
 }
