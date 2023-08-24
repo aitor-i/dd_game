@@ -2,12 +2,12 @@ use crate::domain::base_character::CharacterActions;
 use crate::domain::goblin::Goblin;
 use std::io;
 
-pub fn training_fight() -> () { 
+pub fn training_fight(character: &mut dyn CharacterActions) -> () { 
     println!("A goblin apear on yor way, it seems to be dangerous");
     println!("What dou you wanna do?");
 
     let mut goblin = Goblin::new(1, "Small goblin");
-    let mut goblin2 = Goblin::new(1, "Medium Goblin");
+    //let mut goblin2 = Goblin::new(1, "Medium Goblin");
 
 
     loop { 
@@ -28,7 +28,7 @@ pub fn training_fight() -> () {
         };
 
         match option { 
-            1 => {calculate_attack(& mut goblin2, &  mut goblin);}
+            1 => {calculate_attack(character, &  mut goblin);}
             2 => {check_opponent(&mut goblin)},
             _ => println!("{} is not a valid option", {option})
         }

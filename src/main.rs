@@ -39,7 +39,7 @@ fn main() {
 
         match option { 
             1 => {  character = set_your_character()},
-            2 => { training_fight() },
+            2 => { training_fight(&mut character) },
             9 => { 
                 println!("Quiting ...");
                 continue;
