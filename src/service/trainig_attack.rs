@@ -1,6 +1,6 @@
 use crate::application::npc_actions::npc_actions;
 use crate::domain::base_character::CharacterActions;
-use crate::domain::goblin::Goblin;
+use crate::domain::npc::Npc;
 use crate::application::check_stats::check_stats;
 use crate::application::calculate_attack::calculate_attack;
 use std::io;
@@ -9,8 +9,8 @@ pub fn training_fight(character: &mut dyn CharacterActions) -> () {
     println!("A goblin apear on yor way, it seems to be dangerous");
     println!("What dou you wanna do?");
 
-    let mut goblin = Goblin::new(1, "Small goblin");
-    //let mut goblin2 = Goblin::new(1, "Medium Goblin");
+    let mut goblin = Npc::new(1, "Small goblin");
+    //let mut goblin2 = Npc::new(1, "Medium Goblin");
 
 
     loop { 

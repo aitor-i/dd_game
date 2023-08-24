@@ -1,6 +1,6 @@
 use crate::domain::base_character::CharacterActions;
 
-pub  struct Goblin<'lifetime> { 
+pub  struct Npc<'lifetime> { 
     level:u8,
     health: u8,
     attack_power:u8,
@@ -8,9 +8,9 @@ pub  struct Goblin<'lifetime> {
     name: &'lifetime str
 }
 
-impl <'lifetime> Goblin <'_>{ 
-    pub  fn new(level:u8, name: &'lifetime str) -> Goblin { 
-        let mut new_goblin  = Goblin { 
+impl <'lifetime> Npc <'_>{ 
+    pub  fn new(level:u8, name: &'lifetime str) -> Npc { 
+        let mut new_goblin  = Npc { 
             level,
             health : 25 ,
             attack_power: 1, 
@@ -22,7 +22,7 @@ impl <'lifetime> Goblin <'_>{
     }
 }
 
-impl CharacterActions for Goblin <'_> { 
+impl CharacterActions for Npc <'_> { 
     
      fn recieve_damage(&mut self, damage:u8) { 
         let remaining_health = self.health - damage;
@@ -46,12 +46,12 @@ impl CharacterActions for Goblin <'_> {
     fn get_name(&mut self) -> &str {
         return self.name;
     }
-
     fn print_stats(&mut self) -> () {
         println!("Name: {}", self.name);
         println!("Health: {}", self.health);
         println!("Attack power: {}", self.attack_power);
         println!("Agility: {}", self.agility);
     }
+     
 
 }
