@@ -22,6 +22,7 @@ impl <'lifetime> Npc <'_>{
     }
 }
 
+
 fn calculate_stats(base:u8, level:u8, max:u8) -> u8 { 
     let stat = base * level;
     if stat > max { return max}
