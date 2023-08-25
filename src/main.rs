@@ -31,7 +31,7 @@ fn main() {
         };
 
         match option { 
-            1 => {  },
+            1 => {println!("TODO")  },
             2 => { training_fight(&mut character) },
             9 => { 
                 println!("Quiting ...");
