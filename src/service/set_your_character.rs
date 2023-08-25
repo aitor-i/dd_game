@@ -1,5 +1,4 @@
 use std::io;
-use rand::Rng;
 
 use crate::domain::characters::Character;
 use crate::domain::characters::CharacterBuild;

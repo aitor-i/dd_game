@@ -1,7 +1,6 @@
 use crate::application::genrate_npc::generate_npc;
 use crate::application::npc_actions::npc_actions;
 use crate::domain::base_character::CharacterActions;
-use crate::domain::npc::Npc;
 use crate::application::check_stats::check_stats;
 use crate::application::calculate_attack::calculate_attack;
 use std::io;
