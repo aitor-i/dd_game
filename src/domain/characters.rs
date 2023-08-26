@@ -60,6 +60,13 @@ impl CharacterActions for Character {
         return self.attack_power;
     }
 
+    fn restore_partial_health(&mut self) -> () {
+        let ten_percent = self.health as f32 * 0.1;
+        let mut inclemented_health = self.health + ten_percent as u8;
+        if inclemented_health > 100 { inclemented_health = 100;};
+        self.health = inclemented_health;
+        println!("Your health has been restored! Current health: {}", self.health);
+    }
     fn print_stats(&mut self) -> () {
         println!("Name: {}", self.name);
         println!("Health: {}", self.health);

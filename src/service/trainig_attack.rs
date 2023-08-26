@@ -57,6 +57,8 @@ pub fn training_fight(character: &mut dyn CharacterActions) -> () {
             _ => println!("{} is not a valid option", {option})
         }
         npc_actions(&mut npc, character);
+        character.restore_partial_health();
+        npc.restore_partial_health();
     }   
 }
 

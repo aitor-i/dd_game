@@ -5,4 +5,5 @@ pub trait CharacterActions {
     fn get_level(&mut self) -> u8;
     fn get_name(&mut self) -> &str;
     fn print_stats(&mut self) -> ();
+    fn restore_partial_health(&mut self) -> ();
 }
