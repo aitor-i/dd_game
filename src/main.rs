@@ -3,7 +3,6 @@ mod domain;
 mod service;
 mod application;
 
-use crate::domain::characters::Character;
 use crate::service::messages::print_title;
 use crate::service::messages::print_options;
 use crate::service::set_your_character::set_your_character;
