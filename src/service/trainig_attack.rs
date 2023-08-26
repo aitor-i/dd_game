@@ -1,3 +1,4 @@
+use crate::application::can_defend_attack::can_defend_attack;
 use crate::application::genrate_npc::generate_npc;
 use crate::application::npc_actions::npc_actions;
 use crate::domain::base_character::CharacterActions;
@@ -51,14 +52,18 @@ pub fn training_fight(character: &mut dyn CharacterActions) -> () {
             }
         };
 
+        let mut is_character_defending_attack = false;
+
         match option { 
             1 => {calculate_attack(character, &  mut npc);}
-            2 => {check_opponent(&mut npc)},
+            2 => {is_character_defending_attack = can_defend_attack(character);},
             3 => { check_stats(character) }
+            4 => {check_opponent(&mut npc)},
             _ => println!("{} is not a valid option", {option})
         }
         press_to_continue();
-        npc_actions(&mut npc, character);
+        
+        if !is_character_defending_attack { npc_actions(&mut npc, character);}
         press_to_continue();
         character.restore_partial_health();
         npc.restore_partial_health();
@@ -75,8 +80,9 @@ pub fn check_opponent(opponent: &mut dyn CharacterActions)-> () {
 
 pub  fn fight_option() -> () { 
     println!("1 - Attack");
-    println!("2 - Check opponent");
+    println!("2 - Deffend");
     println!("3 - Check my stats");
+    println!("4 - Check opponent");
     println!();
     println!();
 }
