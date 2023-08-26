@@ -47,6 +47,9 @@ impl CharacterActions for Npc <'_> {
         self.health = inclemented_health;
         println!("{}'s health restored! Current health: {}",self.name, self.health);
     }
+    fn get_agility(&mut self) -> u8 {
+        self.agility
+    }
 
      fn attack(&mut self) -> u8 { 
         return self.attack_power;

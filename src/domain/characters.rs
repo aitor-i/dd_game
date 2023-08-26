@@ -67,6 +67,9 @@ impl CharacterActions for Character {
         self.health = inclemented_health;
         println!("Your health has been restored! Current health: {}", self.health);
     }
+    fn get_agility(&mut self) -> u8 {
+        self.agiliti
+    }
     fn print_stats(&mut self) -> () {
         println!("Name: {}", self.name);
         println!("Health: {}", self.health);
