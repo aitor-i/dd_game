@@ -3,6 +3,7 @@ use crate::application::npc_actions::npc_actions;
 use crate::domain::base_character::CharacterActions;
 use crate::application::check_stats::check_stats;
 use crate::application::calculate_attack::calculate_attack;
+use crate::service::press_to_continue::press_to_continue;
 use std::io;
 use crate::application::genrate_npc::NpcType;
 
@@ -56,7 +57,9 @@ pub fn training_fight(character: &mut dyn CharacterActions) -> () {
             3 => { check_stats(character) }
             _ => println!("{} is not a valid option", {option})
         }
+        press_to_continue();
         npc_actions(&mut npc, character);
+        press_to_continue();
         character.restore_partial_health();
         npc.restore_partial_health();
     }   

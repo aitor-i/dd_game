@@ -2,6 +2,7 @@ use std::io;
 
 use crate::domain::characters::Character;
 use crate::domain::characters::CharacterBuild;
+use crate::service::press_to_continue::press_to_continue;
 
 pub fn set_your_character () -> Character { 
     let set_your_character_title = format!(r#" 
@@ -47,9 +48,7 @@ pub fn set_your_character () -> Character {
     println!("Your attack power is {} points", {character.attack_power});
     println!("Your agility is {} points", {character.agiliti});
 
-    println!("Press any key to continue");
-    let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("Error reading line!");
+    press_to_continue();
 
     return character;
 }
