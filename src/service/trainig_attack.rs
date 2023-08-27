@@ -52,22 +52,24 @@ pub fn training_fight(character: &mut dyn CharacterActions) -> () {
             }
         };
 
-        let mut is_character_defending_attack = false;
 
         match option { 
             1 => {calculate_attack(character, &  mut npc);}
-            2 => {is_character_defending_attack = can_defend_attack(character);},
+            2 => {calculate_defend(character, &mut npc)},
             3 => { check_stats(character) }
             4 => {check_opponent(&mut npc)},
             _ => println!("{} is not a valid option", {option})
         }
-        press_to_continue();
-        
-        if !is_character_defending_attack { npc_actions(&mut npc, character);}
+
         press_to_continue();
         character.restore_partial_health();
         npc.restore_partial_health();
     }   
+}
+
+fn calculate_defend(character: &mut dyn CharacterActions, npc: &mut dyn CharacterActions) -> () { 
+    let is_character_defending_attack = can_defend_attack(character);
+    if !is_character_defending_attack { npc_actions(npc, character);}
 }
 
 pub fn check_opponent(opponent: &mut dyn CharacterActions)-> () { 
