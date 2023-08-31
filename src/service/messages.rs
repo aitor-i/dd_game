@@ -16,7 +16,7 @@ ______ _                               _   _           ______
 }
 
 pub fn print_options() -> () { 
-    println!("1 - Set your character");
+    println!("1 - Start game");
     println!("2 - Training mode");
     println!("3 - ");
     println!("9 - Exit  ");

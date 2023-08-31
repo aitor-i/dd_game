@@ -7,10 +7,12 @@ use crate::service::messages::print_title;
 use crate::service::messages::print_options;
 use crate::service::set_your_character::set_your_character;
 use crate::service::trainig_attack::training_fight;
+use crate::service::game::intro::print_intro_story;
 
 fn main() {
     print_title();
     let mut character = set_your_character();
+    
     println!("Please select one of this options");
     
     loop {  
@@ -30,7 +32,7 @@ fn main() {
         };
 
         match option { 
-            1 => {println!("TODO")  },
+            1 => {run_history_mode(); },
             2 => { training_fight(&mut character) },
             9 => { 
                 println!("Quiting ...");
@@ -43,3 +45,6 @@ fn main() {
     };
 }
 
+fn run_history_mode( )-> () { 
+    print_intro_story();
+}
