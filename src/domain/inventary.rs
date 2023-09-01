@@ -5,6 +5,7 @@ pub struct Inventary {
 
 impl Inventary { 
     fn add_to_inventary(mut self, item: InventaryItem)-> () {
+        println!("Item added to inventary!" );
         self.items.push(item); 
     }
 

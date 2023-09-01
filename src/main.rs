@@ -3,6 +3,7 @@ mod domain;
 mod service;
 mod application;
 
+use crate::domain::inventary::Inventary;
 use crate::service::messages::print_title;
 use crate::service::messages::print_options;
 use crate::service::set_your_character::set_your_character;
@@ -12,6 +13,8 @@ use crate::service::game::intro::print_intro_story;
 fn main() {
     print_title();
     let mut character = set_your_character();
+    let mut inventay: Inventary;
+    
     
     println!("Please select one of this options");
     
