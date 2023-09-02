@@ -9,7 +9,14 @@ impl Inventary {
         self.items.push(item); 
     }
 
-    fn use_item(mut self, item_name:InventaryItemsEnum)-> () { 
+    fn use_item(self, item_name:InventaryItemsEnum)-> () { 
+        for mut item in self.items { 
+            if item.name == item_name { 
+                if item.times >=  1 { item.times = item.times - 1 }
+                println!("item used");
+
+            }
+        }
         
     }
 
@@ -35,4 +42,5 @@ impl InventaryItem {
         }
     }
 }
+#[derive(PartialEq)]
  pub enum InventaryItemsEnum { HealingPotion, AgilityPotion, MaxHealthPotion  }
