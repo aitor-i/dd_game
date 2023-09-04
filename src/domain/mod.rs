@@ -3,5 +3,6 @@ pub mod npc;
 pub mod char_enum;
 pub mod base_character;
 pub mod inventary;
+pub mod test;
 
 
