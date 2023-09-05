@@ -4,12 +4,19 @@ pub struct Inventary {
 }
 
 impl Inventary { 
-    fn add_to_inventary(mut self, item: InventaryItem)-> () {
+    
+    pub fn new() -> Self { 
+        Self { 
+            items: vec![],
+        }
+    }
+    
+   pub fn add_to_inventary(&mut self, item: InventaryItem)-> () {
         println!("Item added to inventary!" );
         self.items.push(item); 
     }
 
-    fn use_item(self, item_name:InventaryItemsEnum)-> () { 
+   pub fn use_item(self, item_name:InventaryItemsEnum)-> () { 
         for mut item in self.items { 
             if item.name == item_name { 
                 if item.times >=  1 { item.times = item.times - 1 }
