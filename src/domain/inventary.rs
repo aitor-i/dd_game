@@ -17,28 +17,20 @@ impl Inventary {
     }
 
    pub fn use_item(&mut self, item_name:InventaryItemsEnum)-> () { 
-        for mut item in self.items.clone() { 
+        for item in &mut self.items { 
             if item.name == item_name { 
                 if item.times >=  1 { item.times = item.times - 1 }
-                println!("item used");
+                println!("Remaining: {}", item.times);
             }
         }
-        self.clean_empty_items();
+        let filterd_items : Vec<InventaryItem> = self.items.iter().filter(|&ref item| item.times > 0).cloned().collect();
+        println!("Filterd items {:#?}", filterd_items);
+        self.items = filterd_items;
         
     }
     
-    fn clean_empty_items(&mut self,) -> () { 
-        let index_of_empty_itmes = self.items.iter().enumerate().map(| (index, &ref item )| { if item.times == 0  { return index } else { return 99}  });
-        let mut  items_copy = self.items.clone();
-        for index in index_of_empty_itmes { 
-            if index as u8 != 99 as u8 { 
-                items_copy.remove(index);
-            }
-        }
-        self.items = items_copy
-    }
 }
-
+#[derive(Debug)]
 #[derive(Clone)]
 pub struct InventaryItem { 
     name: InventaryItemsEnum,
@@ -59,6 +51,8 @@ impl InventaryItem {
         }
     }
 }
+
+#[derive(Debug)]
 #[derive(PartialEq)]
 #[derive(Clone)]
  pub enum InventaryItemsEnum { HealingPotion, AgilityPotion, MaxHealthPotion  }
