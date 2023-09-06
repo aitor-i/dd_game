@@ -16,5 +16,20 @@ mod tests {
         assert_eq!(inventary.items.len() , 1);
 
     }
+    
+    #[test]
+    fn used_element_should_pop_from_inventary(){ 
+
+        let mut inventary: Inventary = Inventary::new();
+        let power: u8 = 1;
+        let effect_time: u8 = 1;
+        let description = String::from("This potion heals!");
+        let mut item = InventaryItem::new(InventaryItemsEnum::HealingPotion, description, power, effect_time);
+
+        inventary.add_to_inventary(item);
+        inventary.use_item(InventaryItemsEnum::HealingPotion);
+
+        assert_eq!(inventary.items.len(), 0);
+    }
 
 }
