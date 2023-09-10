@@ -38,6 +38,21 @@ mod tests{
         
     }
 
+    #[test]
+    fn charcter_should_restore_partial_health() { 
+        let name_test = String::from("John"); 
+        let mut paladin_mock = Character { 
+            name: name_test.clone(),
+            health : 50,
+            attack_power : 6, 
+            agiliti :10, // This way cant never evade an attack; 
+        };
+        let expected_remaining_health:u8 = 55;
+
+        paladin_mock.restore_partial_health();
+
+        assert_eq!(paladin_mock.get_health(), expected_remaining_health, "Character should restore 10% of actual health heath" );
+    }
 
 
 }
